@@ -52,3 +52,10 @@ Route::get("/checkout/response", function() {
     $arr = ["one" => 1, "two" => 2] ;
     return response($arr, 200)->header("Content-Type", "application/json")->cookie("remember", false, 3600);
 });
+
+Route::get("/checkout/redirect", function() {
+    return redirect("/");
+    // back() back to history page 
+    // redirect()->route(<route_name>) redirect to a named route  
+    // redirect()->away(<url>)
+});
