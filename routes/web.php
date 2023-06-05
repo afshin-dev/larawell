@@ -56,6 +56,13 @@ Route::prefix('/checkout')->group(function() {
         $arr = ["one" => 1, "two" => 2] ;
         return response($arr, 200)->header("Content-Type", "application/json")->cookie("remember", false, 3600);
     });
+
+    Route::get("/request", function() {
+        // dd(request());
+        dd(request()->input("page", 1)); // get specifiv input (query params, request body)
+        
+    });
+    
     
     Route::get("/redirect", function() {
         return redirect("/");
