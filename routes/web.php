@@ -27,7 +27,7 @@ Route::get("/users", function () {
 
 Route::get("/posts/{id}", function($id) {
     $posts = [
-        ["title" => "t1" , "desc" => "desc1" , "is_new" =>true ],
+        ["title" => "t1" , "desc" => "desc1" , "is_new" =>true, "has_comment" => true ],
         ["title" => "t2" , "desc" => "desc2" , "is_new" => false],
     ];
 

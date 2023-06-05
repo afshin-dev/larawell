@@ -7,4 +7,10 @@
     @if ($post["is_new"])
         new post
     @endif
+    @unless ($post["is_new"])
+        old post
+    @endunless
+    @isset($post["has_comment"])
+        <p>[comment section]</p>
+    @endisset
 @endsection
