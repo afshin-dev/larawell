@@ -6,10 +6,12 @@
 
 @section("content")
 <ul>
-  @foreach ($titles as $k => $t)
-    <li>
-      {{$k}}.{{$t}}
+ @forelse ($titles as $k => $t)
+     <li>
+     {{$k}}- {{$t}}
     </li>
-  @endforeach
+ @empty
+     not any title yet!
+ @endforelse
 </ul>
 @endsection
