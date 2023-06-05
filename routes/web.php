@@ -59,3 +59,7 @@ Route::get("/checkout/redirect", function() {
     // redirect()->route(<route_name>) redirect to a named route  
     // redirect()->away(<url>)
 });
+
+Route::get("/checkout/json/{s}", function(string $s){
+    return response()->json(str_split($s));
+});
