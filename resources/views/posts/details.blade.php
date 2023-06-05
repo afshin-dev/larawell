@@ -4,4 +4,7 @@
 
 @section("content")
     <p>{{$post["desc"]}}</p>
+    @if ($post["is_new"])
+        new post
+    @endif
 @endsection
