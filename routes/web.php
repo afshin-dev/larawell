@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::view("/contact", "home.contact")->name("home.contact");
+
 Route::get("/users", function () {
     return view("users.home");
 })->name("users.home")
