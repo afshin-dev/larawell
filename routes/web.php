@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\BeforeMiddleware;
 /*
@@ -13,12 +14,11 @@ use App\Http\Middleware\BeforeMiddleware;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware(BeforeMiddleware::class); 
 
 
-Route::view("/contact", "home.contact")->name("home.contact");
+
+Route::get("/", [HomeController::class, "home"]);
+Route::get("/contact", [HomeController::class, "contact"]);
 
 Route::get("/users", function () {
     return view("users.home");
