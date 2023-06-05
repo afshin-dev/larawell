@@ -48,3 +48,7 @@ Route::get("/posts/{id}", function($id) {
     return view("posts.details", ["post" =>$post ]);
 })->name("posts.details");
 
+Route::get("/checkout/response", function() {
+    $arr = ["one" => 1, "two" => 2] ;
+    return response($arr, 200)->header("Content-Type", "application/json")->cookie("remember", false);
+});
