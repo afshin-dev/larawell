@@ -50,5 +50,5 @@ Route::get("/posts/{id}", function($id) {
 
 Route::get("/checkout/response", function() {
     $arr = ["one" => 1, "two" => 2] ;
-    return response($arr, 200)->header("Content-Type", "application/json")->cookie("remember", false);
+    return response($arr, 200)->header("Content-Type", "application/json")->cookie("remember", false, 3600);
 });
