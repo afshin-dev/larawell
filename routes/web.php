@@ -25,6 +25,15 @@ Route::get("/users", function () {
 })->name("users.home")
 ;
 
+Route::get('/posts/titles', function() {
+    $titles = [
+        "t1",
+        "t2",
+        "t3",
+    ];
+    return view("posts.titles", ["titles" => $titles]);
+})->name('posts.titles');
+
 Route::get("/posts/{id}", function($id) {
     $posts = [
         ["title" => "t1" , "desc" => "desc1" , "is_new" =>true, "has_comment" => true ],
@@ -38,3 +47,4 @@ Route::get("/posts/{id}", function($id) {
     $post = array_key_exists($id, $posts) ? $posts[$id] : [] ;  
     return view("posts.details", ["post" =>$post ]);
 })->name("posts.details");
+
