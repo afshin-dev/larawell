@@ -16,6 +16,12 @@ class BlogPostController extends Controller
         return view("posts.create") ;
     }
     public function store(Request $req) {
+
+        $req->validate([
+            "title" => ["required" , "min:2" , "max:1000"] ,
+            "content" => ["required" , "min:5"] 
+        ]);
+        
         $title = $req->input("title") ;
         $content = $req->input("content") ;
 
