@@ -7,6 +7,11 @@
     <title>@yield("title")</title>
 </head>
 <body>
+    @if(session("msg-create"))
+        <div style="background-color: green; color : white;">
+            {{session("msg-create")}}
+        </div>
+    @endif
     @yield("content")
 
 </body>

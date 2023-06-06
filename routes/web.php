@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogPostController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\BeforeMiddleware;
@@ -25,29 +26,13 @@ Route::get("/users", function () {
 })->name("users.home")
 ;
 
-Route::get('/posts/titles', function() {
-    $titles = [
-        "t1",
-        "t2",
-        "t3",
-    ];
-    return view("posts.titles", ["titles" => $titles]);
-})->name('posts.titles');
-
-Route::get("/posts/{id}", function($id) {
-    $posts = [
-        ["title" => "t1" , "desc" => "desc1" , "is_new" =>true, "has_comment" => true ],
-        ["title" => "t2" , "desc" => "desc2" , "is_new" => false],
-    ];
-
-    abort_if(!isset($posts[$id]), 404);
 
 
 
-    $post = array_key_exists($id, $posts) ? $posts[$id] : [] ;  
-    return view("posts.details", ["post" =>$post ]);
-})->name("posts.details");
 
+Route::get("/posts", [BlogPostController::class, "index"])->name("posts.index");
+Route::post("/posts", [BlogPostController::class, "store"]);
+Route::get("/posts/create", [BlogPostController::class, "create"]);
 
 // checkout resource 
 Route::prefix('/checkout')->group(function() {
