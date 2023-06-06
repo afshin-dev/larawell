@@ -8,12 +8,14 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
 
+
     // Route::get('/', function () {
     //     return view('welcome');
     // }); 
     //
 
     public function home() {
+        
         return view('welcome');
     }
 
